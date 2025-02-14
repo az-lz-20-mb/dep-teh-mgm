@@ -1,0 +1,12 @@
+# Local Terraform state
+*.tfstate
+*.tfstate.*
+
+# Ignore Terraform working directory
+.terraform/
+
+# Ignore sensitive provider cache files
+.terraform.lock.hcl
+
+# Ignore generated plan files
+*.tfplan

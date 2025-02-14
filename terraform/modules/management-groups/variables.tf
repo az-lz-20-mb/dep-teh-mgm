@@ -1,0 +1,37 @@
+variable "root_id" {
+  type    = string
+  default = "44a926b2-f8ee-464b-b28a-5e6124f2bb56"
+}
+
+variable "root_name" {
+  type    = string
+  default = "Tenant Root Group"
+}
+
+variable "mg_prefix" {
+  description = "Prefix for the management group names"
+  type        = string
+}
+
+variable "default_location" {
+  description = "Default Azure region for deployments"
+  type        = string 
+}
+
+variable "landing_zones" {
+  type = map(object({
+    parent          = optional(string, "root") # Defaults to "root" if not provided
+    archetype_id    = optional(string, "default-archetype") # Defaults to "default-archetype"
+    subscription_ids = optional(list(string), []) # Defaults to an empty list if not provided
+    parameters      = optional(any, {}) # Optional map for additional parameters
+    access_control  = optional(map(set(string)), {}) # Optional access control settings
+    display_name    = optional(string) # Optional display name
+  }))
+  default = {} # Default empty map, so it's fully optional
+}
+
+variable "root_scope_resource_id" {
+  type        = string
+  description = "Root scope for policy assignments and management groups"
+  default     = "/providers/Microsoft.Management/managementGroups/root-mg"
+}

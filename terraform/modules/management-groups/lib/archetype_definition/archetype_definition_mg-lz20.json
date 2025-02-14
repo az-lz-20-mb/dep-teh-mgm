@@ -1,0 +1,22 @@
+{
+  "mg-lz20": {
+    "policy_assignments": ["Enforce-RG-Tags-I-A"],
+    "policy_definitions": ["Enforce-RG-Tags"],
+    "policy_set_definitions": ["Enforce-RG-Tags-Initiative"],
+    "role_definitions": ["Reader-Support-Tickets"],
+    "archetype_config": {
+      "parameters": {},
+      "access_control": {
+        "Contributor": [
+          "8052da73-37ba-49be-8552-f8fee282d734"
+        ],
+        "Resource Policy Contributor": [
+          "8052da73-37ba-49be-8552-f8fee282d734"
+        ],
+        "[MG-LZ20] Reader-Support-Tickets": [
+          "8052da73-37ba-49be-8552-f8fee282d734"
+        ]
+      }
+    }
+  }
+}

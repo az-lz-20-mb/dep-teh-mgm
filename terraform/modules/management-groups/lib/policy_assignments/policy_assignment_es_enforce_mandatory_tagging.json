@@ -1,0 +1,33 @@
+{
+  "name": "Enforce-RG-Tags-I-A",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "description": "Ensures that all Resource Groups have the mandatory 'Owner' and 'Department' tags.",
+    "displayName": "Enforce Mandatory Tags on Resource Groups - Initiative",
+    "notScopes": [],
+    "parameters": {
+      "Owner": {
+        "value": "Jane Doe"
+      },
+      "Department": {
+        "value": "IT"
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/mg-lz20/providers/Microsoft.Authorization/policySetDefinitions/Enforce-RG-Tags-Initiative",
+    "nonComplianceMessages": [
+      {
+        "message": "Resource Groups must have 'Owner' and 'Department' tags to comply with policy."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location":"${default_location}",
+  "identity": {
+    "type": "UserAssigned",
+      "userAssignedIdentities": {
+          "/subscriptions/975718ba-065f-43d9-9efb-b3ca32327f01/resourceGroups/Identity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mg-policy-identity": {}
+      }
+}
+}

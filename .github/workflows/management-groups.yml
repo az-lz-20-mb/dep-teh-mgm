@@ -41,3 +41,10 @@ jobs:
 
           # Apply the Terraform plan
           terraform apply -auto-approve tfplan
+
+    - name: Terraform Destroy
+      run: |
+          cd terraform/modules/management-groups
+          
+          # Destroy the Terraform-managed infrastructure
+          terraform destroy -auto-approve

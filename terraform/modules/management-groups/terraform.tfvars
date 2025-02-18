@@ -2,22 +2,20 @@ root_id   = "44a926b2-f8ee-464b-b28a-5e6124f2bb56"
 root_name = "Tenant Root Group"
 mg_prefix = "mg"
 default_location = "germanywestcentral"
+deploy_core_landing_zones = false
 
 landing_zones = {
   "lz20" = {
     parent          = "root"
     archetype_id    = "mg-lz20"
+    subscription_ids = [] 
     parameters ={}
   }
   "mteh" = {
     parent          = "lz20"
     archetype_id    = "mg-mteh"
-    subscription_ids = [] # Multiple subscriptions
-    access_control = {
-      "Reader" = [
-        "8052da73-37ba-49be-8552-f8fee282d734"
-      ]
-    }
+    subscription_ids = [] 
+    access_control = {}
   }
   "mteh-security" = {
     parent          = "lz20"

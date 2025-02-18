@@ -35,14 +35,14 @@ module "enterprise_scale" {
   root_id        = var.root_id
   root_name      = var.root_name
   library_path   = "${path.root}/lib"
-  deploy_core_landing_zones = false
+  deploy_core_landing_zones = var.deploy_core_landing_zones
  
   custom_landing_zones = {
     for key, value in var.landing_zones : 
     "${var.mg_prefix}-${key}" => {
       display_name = lookup(value, "display_name", "${var.mg_prefix}-${key}")
       parent_management_group_id = value.parent == "root" ? var.root_id : "${var.mg_prefix}-${value.parent}"
-      subscription_ids           =  []
+      subscription_ids           =  value.subscription_ids
       archetype_config = {
         archetype_id   = value.archetype_id
         parameters     = value.parameters
@@ -51,6 +51,5 @@ module "enterprise_scale" {
     }
   }
   
-
 }
 

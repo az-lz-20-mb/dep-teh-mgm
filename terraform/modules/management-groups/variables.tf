@@ -35,3 +35,8 @@ variable "root_scope_resource_id" {
   description = "Root scope for policy assignments and management groups"
   default     = "/providers/Microsoft.Management/managementGroups/root-mg"
 }
+
+variable "deploy_core_landing_zones" {
+  description = "Flag to deploy core landing zones"
+  type        = bool
+}

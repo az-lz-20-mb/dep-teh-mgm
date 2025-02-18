@@ -3,7 +3,7 @@ root_name = "Tenant Root Group"
 mg_prefix = "mg"
 default_location = "germanywestcentral"
 deploy_core_landing_zones = false
-library_path = "${path.root}/lib"
+
 
 
 landing_zones = {
@@ -32,6 +32,66 @@ landing_zones = {
     archetype_id    = "mg-mteh"
     subscription_ids = []
     
+  }
+  "env01-avdtm" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-dra" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-sqldb" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-blktm" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-dtg" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-wintel" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-budget" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-mdt" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-zrb" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-devops" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-net" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
+  }
+  "env01-zua" = {
+    parent          = "env01"
+    archetype_id    = "mg-mteh"
+    subscription_ids = []
   }
   "env02" = {
     parent          = "mteh"
@@ -131,65 +191,6 @@ landing_zones = {
     subscription_ids = []
     display_name =  "Management"
   }
-  "env01-avdtm" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-dra" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-sqldb" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-blktm" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-dtg" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-wintel" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-budget" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-mdt" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-zrb" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-devops" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-net" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
-  "env01-zua" = {
-    parent          = "env01"
-    archetype_id    = "mg-mteh"
-    subscription_ids = []
-  }
+  
  }
 

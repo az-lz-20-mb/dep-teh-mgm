@@ -40,3 +40,8 @@ variable "deploy_core_landing_zones" {
   description = "Flag to deploy core landing zones"
   type        = bool
 }
+
+variable "library_path" {
+  description = "Path to the library"
+  type        = string
+}

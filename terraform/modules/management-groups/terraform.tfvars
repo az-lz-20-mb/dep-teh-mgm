@@ -3,12 +3,15 @@ root_name = "Tenant Root Group"
 mg_prefix = "mg"
 default_location = "germanywestcentral"
 deploy_core_landing_zones = false
+library_path = "${path.root}/lib"
+
 
 landing_zones = {
   "lz20" = {
     parent          = "root"
     archetype_id    = "mg-lz20"
     subscription_ids = [] 
+    access_control = {}
     parameters ={}
   }
   "mteh" = {
@@ -16,16 +19,19 @@ landing_zones = {
     archetype_id    = "mg-mteh"
     subscription_ids = [] 
     access_control = {}
+    parameters ={}
   }
   "mteh-security" = {
     parent          = "lz20"
     archetype_id    = "mg-mteh"
     subscription_ids = []
+    parameters ={}
   }
   "env01" = {
     parent          = "mteh"
     archetype_id    = "mg-mteh"
     subscription_ids = []
+    
   }
   "env02" = {
     parent          = "mteh"

@@ -41,19 +41,3 @@ jobs:
 
           # Apply the Terraform plan
           terraform apply -auto-approve tfplan
-
-    - name: Terraform Destroy
-      env:
-        ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-        ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      run: |
-          # Log in to Azure CLI
-          az login --service-principal --username $ARM_CLIENT_ID --password $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
-          az account set --subscription $ARM_SUBSCRIPTION_ID
-          
-          cd terraform/modules/management-groups
-          
-          # Destroy the Terraform-managed infrastructure
-          terraform destroy -auto-approve

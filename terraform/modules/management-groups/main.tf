@@ -20,7 +20,7 @@ provider "azurerm" {
 data "azurerm_client_config" "core" {}
 
 module "enterprise_scale" {
-  source = "git::https://github.com/az-lz-20-mb/terraform-azurerm-caf-enterprise-scale.git//modules?ref=main"
+  source = "git::https://github.com/az-lz-20-mb/terraform-azurerm-caf-enterprise-scale.git"
   
 
   default_location = var.default_location

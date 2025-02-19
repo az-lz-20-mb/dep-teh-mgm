@@ -1,10 +1,9 @@
-name: Management Groups
 
 on: workflow_dispatch
 
 jobs:
   terraform:
-    name: Apply Terraform
+    name: Delete Terraform
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +16,7 @@ jobs:
       with:
         terraform_version: '1.9.2'
 
-    - name: Terraform Destroy
+    - name: Terraform Initialization, Validate, Plan, and Apply
       env:
         ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
         ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
@@ -27,6 +26,14 @@ jobs:
           # Log in to Azure CLI
           az login --service-principal --username $ARM_CLIENT_ID --password $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
           az account set --subscription $ARM_SUBSCRIPTION_ID
+          
+          cd terraform/modules/management-groups
+
+          # Initialize Terraform
+          terraform init -upgrade
+
+          # Validate the Terraform configuration
+          terraform validate
           
           cd terraform/modules/management-groups
           

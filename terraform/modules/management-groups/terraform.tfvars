@@ -146,7 +146,7 @@ landing_zones = {
   "env02-devops" = {
     parent          = "env02"
     archetype_id    = "mg-mteh"
-    subscription_ids = [""]
+    subscription_ids = []
   }
   "env02-mdt" = {
     parent          = "env02"

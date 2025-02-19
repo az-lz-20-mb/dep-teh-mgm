@@ -1,9 +1,10 @@
+name: Management Groups Destroy
 
 on: workflow_dispatch
 
 jobs:
   terraform:
-    name: Delete Terraform
+    name: Destroy Terraform Resources
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +17,7 @@ jobs:
       with:
         terraform_version: '1.9.2'
 
-    - name: Terraform Initialization, Validate, Plan, and Apply
+    - name: Terraform Initialization, Validate, Plan, and Destroy
       env:
         ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
         ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
@@ -34,8 +35,9 @@ jobs:
 
           # Validate the Terraform configuration
           terraform validate
-          
-          cd terraform/modules/management-groups
-          
+
+          # Run Terraform Plan for Destroy
+          terraform plan -destroy -out=tfplan
+
           # Destroy the Terraform-managed infrastructure
           terraform destroy -auto-approve

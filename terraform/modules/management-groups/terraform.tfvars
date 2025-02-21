@@ -1,3 +1,4 @@
+# Root management group details
 root_id   = "44a926b2-f8ee-464b-b28a-5e6124f2bb56"
 root_name = "Tenant Root Group"
 mg_prefix = "mg"
@@ -5,7 +6,7 @@ default_location = "germanywestcentral"
 deploy_core_landing_zones = false
 
 
-
+# Landing zones configuration
 landing_zones = {
   "lz20" = {
     parent          = "root"
@@ -14,6 +15,7 @@ landing_zones = {
     access_control = {}
     parameters ={}
   }
+  # Management group for mteh
   "mteh" = {
     parent          = "lz20"
     archetype_id    = "mg-mteh"
@@ -21,12 +23,14 @@ landing_zones = {
     access_control = {}
     parameters ={}
   }
+  # Management group for security
   "mteh-security" = {
     parent          = "lz20"
     archetype_id    = "mg-mteh"
     subscription_ids = []
     parameters ={}
   }
+  # ENV team-specific sub-groups
   "env01" = {
     parent          = "mteh"
     archetype_id    = "mg-mteh"
@@ -163,6 +167,7 @@ landing_zones = {
     archetype_id    = "mg-mteh"
     subscription_ids = []
   }
+  # New groups under mg-mteh, following CAF Platform model
   "mteh-decom" = {
     parent          = "mteh"
     archetype_id    = "mg-mteh"
@@ -173,6 +178,7 @@ landing_zones = {
     archetype_id    = "mg-mteh"
     subscription_ids = []
   }
+  # New groups under mg-mteh-shared, following CAF Platform model
   "identity" = {
     parent          = "mteh-shared"
     archetype_id    = "mg-mteh"

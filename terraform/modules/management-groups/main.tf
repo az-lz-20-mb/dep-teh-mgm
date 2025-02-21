@@ -53,6 +53,5 @@ module "enterprise_scale" {
       }
     }
   }
-  
 }
 

@@ -1,3 +1,4 @@
+// Configure the Terraform backend to use Azure Storage
 terraform {
     backend "azurerm" {
         storage_account_name = "tfstatestorage2lz20"
@@ -13,30 +14,32 @@ terraform {
         }
     }
 }
+
+// Configure the AzureRM provider
 provider "azurerm" {
   features {}
 }
-
+// Get the current Azure client configuration
 data "azurerm_client_config" "core" {}
 
+// Define the enterprise scale module
 module "enterprise_scale" {
   source = "git::https://github.com/az-lz-20-mb/terraform-azurerm-caf-enterprise-scale.git"
-  
-
   default_location = var.default_location
-
   providers = {
     azurerm              = azurerm
     azurerm.connectivity = azurerm
     azurerm.management   = azurerm
   }
 
+  // Set the root management group details
   root_parent_id = data.azurerm_client_config.core.tenant_id
   root_id        = var.root_id
   root_name      = var.root_name
   library_path = "${path.root}/lib"
   deploy_core_landing_zones = var.deploy_core_landing_zones
- 
+   
+  // Define custom landing zones
   custom_landing_zones = {
     for key, value in var.landing_zones : 
     "${var.mg_prefix}-${key}" => {
